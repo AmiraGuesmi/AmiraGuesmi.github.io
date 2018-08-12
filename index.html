@@ -83,12 +83,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h3 class="title"><span></span>Nous allons nous marier!<span></span></h3>
+                    <h3 class="title"><i></i>Nous allons nous marier!<i></i></h3>
                     <ul class="names">
                         <li>Souha</li>
                         <li class="circle">&amp;</li>
                         <li>Fares</li>
                     </ul>
+                    <div class="place">
+                      <h3 class="title"><i></i><span style="color: inherit;">Invitation</span><i></i></h3>
+                      <h2 class="title"><span id="guest"></span></h2>
+                    </div>
                     <div class="date">Août <span>26</span> 2018</div>
                     <div class="hour">21:00h</div>
                     <div class="place">
@@ -129,8 +133,8 @@
                         <li class=""><a href="#couple">Couple</a></li>
                         <li class=""><a href="#our-story">Notre Histoire</a></li>
                         <li class=""><a href="#gallery">Galerie</a></li>
-                        <!-- <li class=""><a href="#featured-people">Featured People</a></li>
-                        <li class=""><a href="#gift-registry">Gifts</a></li>
+                        <li class=""><a href="#location">Localisation</a></li>
+                        <!-- <li class=""><a href="#gift-registry">Gifts</a></li>
                         <li class=""><a href="#rsvp">RSVP</a></li> -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -308,6 +312,28 @@
         </div>
     </section>
     <!-- END SECTION: gallery -->
+
+    <section id="location">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-xs-12 text-center">
+                    <div class="title-block">
+                        <h1><span><em>Localisation</em></span></h1>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25580.63577779048!2d10.253443229746601!3d36.732659684599035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd482805d4e81f%3A0x814e7efee5be6ebe!2sSalle+des+f%C3%AAtes+Prestige!5e0!3m2!1sfr!2stn!4v1534074279446"
+                  width="100%" height="500" frameborder="0" style="border:0" allowfullscreen  scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                  <br />
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- START SECTION: featured-people -->
     <!-- <section id="featured-people">
@@ -582,6 +608,16 @@
         });
     });
 
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
     var wrapper = document.getElementById('gallery_images')
     var myHTML = ''
     for (var i = 1; i < 58; i++) {
@@ -593,6 +629,10 @@
                 </div>'
     }
     wrapper.innerHTML = myHTML
+
+    var guestDiv = document.getElementById('guest')
+
+    guestDiv.innerHTML = getParameterByName('guest') || ''
 
 </script>
     <!-- Sticky Navbar -->

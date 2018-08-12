@@ -256,7 +256,7 @@ ul.names li{
 .place{
 	font-size:20px;
 }
-.title span{
+.title i{
     -moz-border-top-colors: none;
 	-moz-border-right-colors: none;
 	-moz-border-bottom-colors: none;
@@ -280,7 +280,7 @@ ul.names li{
 	.title{
 		margin-bottom:30px;
 	}
-	.title span{
+	.title i{
 		width: 17px;
 		margin: 7px 5px;
 	}
